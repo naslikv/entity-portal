@@ -1,0 +1,96 @@
+.form-field {
+    margin:10px;
+    width: 470px;
+    height: 56px;
+   }
+ 
+   .action-row{
+     width: 100%;
+     height: 100%;
+     display:flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+   }
+ 
+   .heading{
+     font-size: 48px;
+     margin-bottom: 50px;
+     margin-top: 50px;
+ 
+   }
+   .sub-heading{
+     font-size: 20px;
+     color: #6750A4;
+     margin-top: 10px;
+     margin-bottom: 10px;
+   }
+   .header{
+     margin:10px;
+     padding: 10px;
+     text-align: center;
+   }
+   .expanded-button{
+     width: 100%;
+     height: 100%;
+     text-align: center;
+     align-self: center;
+     border-radius: 100px;
+   }
+   .choose-file-button{
+    width: 200px;
+    height: 40px;
+    align-items: start;
+    align-self: flex-start;
+    margin-left: 15px;
+    
+    /* margin-right: 10px; */
+   }
+   .reset-button{
+    width: 200px;
+    height: 40px;
+    align-items: end;
+    align-self: flex-end;
+    margin-left: 60px;
+   }
+   .initiate-button{
+    width:300px;
+    height: 40px;
+    align-items: center;
+    align-content: center;
+    margin-left: 75px;
+    margin-top: 10px;
+   }
+
+   .light-button{
+    background-color: #EADDFF !important;
+    color: black !important;
+   }
+   .action-column-start{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    margin-top: 10px;
+   }
+   .action-column-end{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+   }
+   .panel-border{
+    border:1px dotted grey;
+   }
+   .no-margin-no-padding{
+    margin: 0!important;
+    padding: 0!important;
+   }
+   .hidden{
+    display: none;
+   }
+
+   

@@ -1,0 +1,78 @@
+@if(actionCompleted) {
+<div class="centered-container">
+  <ng-lottie
+    [options]="options"
+    width="300px"
+    height="300px"
+    (animationCreated)="animationCreated($event)"
+  >
+  </ng-lottie>
+</div>
+<div class="header">
+  <h3 class="sub-heading">Entity record modified successfully</h3>
+</div>
+} @else{
+<mat-dialog-content
+  ><div class="header">
+    <h3 class="heading">Edit Entity</h3>
+  </div>
+  <div class="centered-container">
+    <p>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Type</mat-label>
+        <input matInput type="text" [(ngModel)]="type" />
+        @if (type) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="type = ''"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Value</mat-label>
+        <input matInput type="text" [(ngModel)]="value" />
+        @if (value) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="value = ''"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="sign-in-button">
+    <div class="save-button">
+      <button
+        class="expanded-button"
+        mat-flat-button
+        color="primary"
+        (click)="save()"
+      >
+        Save
+      </button>
+    </div>
+    <div class="cancel-button">
+      <button
+        class="expanded-button"
+        mat-flat-button
+        color="primary"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</mat-dialog-actions>
+}

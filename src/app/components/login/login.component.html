@@ -1,0 +1,54 @@
+<div class="header">
+  <h1 class="heading">Tabula Rasa</h1>
+  <h3 class="sub-heading">Sign in to continue</h3>
+  @if(showValidationMessage){
+  <h3 class="validation-message">
+    Incorrect username or password.Please try again with the correct credentials
+  </h3>
+  }
+</div>
+<div class="centered-container">
+  <p>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" [(ngModel)]="username" />
+      @if (username) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="username = ''"
+      >
+        <mat-icon>cancel</mat-icon>
+      </button>
+      }
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [(ngModel)]="password" />
+      @if (password) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="password = ''"
+      >
+        <mat-icon>cancel</mat-icon>
+      </button>
+      }
+    </mat-form-field>
+  </p>
+  <div class="sign-in-button">
+    <button
+      class="expanded-button"
+      mat-flat-button
+      color="primary"
+      (click)="login()"
+      [disabled]="username === '' || password === ''"
+    >
+      Sign In
+    </button>
+  </div>
+</div>

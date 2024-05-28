@@ -1,0 +1,85 @@
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    mode="side"
+    [fixedInViewport]="true"
+    opened="true"
+  >
+    <h4>Import Utility</h4>
+    <mat-nav-list>
+      <div mat-subheader>Menu</div>
+      <a
+        class="list-item"
+        mat-list-item
+        [routerLink]="this.homeRoute"
+        [ngClass]="this.currentRoute === this.homeRoute ? 'bg-selected' : ''"
+      >
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a
+        class="list-item"
+        mat-list-item
+        [routerLink]="this.importRoute"
+        [ngClass]="this.currentRoute === this.importRoute ? 'bg-selected' : ''"
+      >
+        <mat-icon matListItemIcon>import_export</mat-icon>
+        <span>Imports</span>
+      </a>
+      <a
+        class="list-item"
+        mat-list-item
+        [routerLink]="this.entityRoute"
+        [ngClass]="this.currentRoute === this.entityRoute ? 'bg-selected' : ''"
+      >
+        <mat-icon matListItemIcon>note</mat-icon>
+        <span>Entity Listings</span>
+      </a>
+      @if(currentUser!.role!.description==='admin'){
+      <a
+        class="list-item"
+        mat-list-item
+        [routerLink]="this.userRoute"
+        [ngClass]="this.currentRoute === this.userRoute ? 'bg-selected' : ''"
+      >
+        <mat-icon matListItemIcon>people</mat-icon>
+        <span>Users</span>
+      </a>
+      }
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="bg-white">
+    <p>
+      <mat-toolbar class="text-center toolbar">
+        <button
+          class="navbar-toggle-button"
+          mat-icon-button
+          aria-label="Example icon-button with menu icon"
+          (click)="drawer.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+
+        <span>{{ title }}</span>
+        <span class="example-spacer"></span>
+        <button
+          [matMenuTriggerFor]="menu"
+          mat-icon-button
+          aria-label="Example icon-button with heart icon"
+        >
+          <mat-icon>account_circle</mat-icon>
+          <mat-menu #menu="matMenu" class="menu" yPosition="below">
+            <!-- <button mat-menu-item class="menu">View Account</button> -->
+            <button mat-menu-item class="menu" (click)="logout()">
+              Logout
+            </button>
+          </mat-menu>
+        </button>
+      </mat-toolbar>
+    </p>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

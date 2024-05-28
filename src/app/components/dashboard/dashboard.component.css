@@ -1,0 +1,40 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .text-center{
+    text-align: center;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidenav {
+    padding: 20px;
+    background-color: #F7F2FA;
+  }
+  .bg-selected{
+    background-color: #E8DEF8;
+  }
+  .bg-white{
+    background-color: white;
+  }
+  .list-item{
+    border-radius: 100px !important;
+    margin-bottom: 10px;
+  }
+  .toolbar{
+    background-color: #F3EDF7;
+  }
+  .navbar-toggle-button{
+    background-color:#F3EDF7 !important;
+  }
+  .menu{
+    background-color: #F7F2FA !important;
+    border:0 !important;
+    
+  }

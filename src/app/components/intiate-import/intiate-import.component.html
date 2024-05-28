@@ -1,0 +1,119 @@
+<mat-dialog-content>
+  @if(importCompleted){
+  <div class="centered-container">
+    <ng-lottie
+      [options]="options"
+      width="250px"
+      height="250px"
+      (animationCreated)="animationCreated($event)"
+    >
+    </ng-lottie>
+  </div>
+  <div class="header">
+    <h3 class="sub-heading">Import initiated successfully</h3>
+  </div>
+  }@else{
+  <div class="header">
+    <h3 class="heading">Initiate Import</h3>
+  </div>
+  <div class="centered-container">
+    @if(fileSelected){
+    <mat-card>
+      <mat-card-content
+        ><div class="action-row">
+          <div class="action-column-start">
+            <p>
+              <mat-label>Selected File : </mat-label>
+            </p>
+            <p>
+              <mat-label>Extension : </mat-label>
+            </p>
+            <p>
+              <mat-label>Size : </mat-label>
+            </p>
+          </div>
+          <div class="action-column-end">
+            <p>
+              <mat-label>{{ file.name }} </mat-label>
+            </p>
+            <p>
+              <mat-label>{{ file.type }} </mat-label>
+            </p>
+            <p>
+              <mat-label>{{ file.size / 1000 }} KB </mat-label>
+            </p>
+          </div>
+        </div></mat-card-content
+      >
+    </mat-card>
+    } @if(!fileSelected){
+    <mat-card>
+      <mat-card-content>
+        <div class="action-column-start">
+          <p>
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+              >clear</mat-icon
+            >
+          </p>
+          <p>
+            <mat-label>No file selected </mat-label>
+          </p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    }
+
+    <div class="action-row">
+      <div class="choose-file-button">
+        <button
+          class="expanded-button light-button"
+          mat-flat-button
+          color="primary"
+          (click)="chooseFile()"
+          [disabled]="this.file"
+        >
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >add</mat-icon
+          >
+          <input
+            #fileInput
+            class="hidden"
+            type="file"
+            (change)="selectFile($event)"
+          />
+          Choose File
+        </button>
+      </div>
+      <div class="reset-button">
+        <button
+          class="expanded-button light-button"
+          mat-flat-button
+          color="primary"
+          (click)="reset()"
+          [disabled]="!this.file"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+</mat-dialog-content>
+@if(!importCompleted){
+<mat-dialog-actions>
+  <div class="action-row initiate-button">
+    <button
+      class="expanded-button"
+      mat-flat-button
+      color="primary"
+      (click)="initiate()"
+      [disabled]="!this.file"
+    >
+      <mat-icon aria-hidden="false" aria-label="Example home icon">
+        add
+      </mat-icon>
+      Initiate Import
+    </button>
+  </div>
+</mat-dialog-actions>
+}

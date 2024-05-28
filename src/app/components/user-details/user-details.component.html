@@ -1,0 +1,128 @@
+@if(actionCompleted) {
+<div class="centered-container">
+  <ng-lottie
+    [options]="options"
+    width="300px"
+    height="300px"
+    (animationCreated)="animationCreated($event)"
+  >
+  </ng-lottie>
+</div>
+<div class="header">
+  <h3 class="sub-heading">
+    User @if(mode==="edit"){ modified } @else { added } successfully
+  </h3>
+</div>
+} @if(!actionCompleted){
+
+<mat-dialog-content>
+  <h5 class="heading" mat-dialog-title>
+    @if(mode==="edit"){ Edit User } @else { Add User }
+  </h5>
+  <div class="centered-container">
+    <p>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="username"
+          [disabled]="this.mode === 'edit'"
+        />
+        @if (username) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="username = ''"
+          [disabled]="this.mode === 'edit'"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          [(ngModel)]="password"
+          [disabled]="this.mode === 'edit'"
+        />
+        @if (password) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="password = ''"
+          [disabled]="this.mode === 'edit'"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </p>
+    <p tabindex="120">
+      <mat-form-field appearance="outline" class="form-field" tabindex="90">
+        <mat-label tabindex="91">Role</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="role"
+          [matAutocomplete]="auto"
+          placeholder="Pick one"
+          tabindex="92"
+        />
+        @if (role) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="role = ''"
+          tabindex="93"
+        >
+          <mat-icon tabindex="94">cancel</mat-icon>
+        </button>
+        }
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          tabindex="95"
+        >
+          @for (option of roles; track option) {
+          <mat-option [value]="option" tabindex="99999">{{
+            option
+          }}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+    </p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="sign-in-button">
+    <div class="save-button">
+      <button
+        class="expanded-button"
+        mat-flat-button
+        color="primary"
+        (click)="save()"
+      >
+        Save
+      </button>
+    </div>
+    <div class="cancel-button">
+      <button
+        class="expanded-button"
+        mat-flat-button
+        color="primary"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</mat-dialog-actions>
+}

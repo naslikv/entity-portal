@@ -1,0 +1,52 @@
+<div class="centered-container">
+  <mat-grid-list cols="2" rowHeight="2:1" class="gridList" gutterSize="5px">
+    <mat-grid-tile>
+      <mat-card class="homeCard" (click)="gotoInitiateImport()">
+        <mat-card-header class="cardHeader">
+          <span>
+            <mat-icon class="cardIcon">add_circle</mat-icon>
+          </span>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>New Import</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="homeCard" (click)="gotoImportList()">
+        <mat-card-header class="cardHeader">
+          <span>
+            <mat-icon class="cardIcon">format_list_bulleted</mat-icon>
+          </span>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>View Past Imports</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="homeCard" (click)="gotoEntityList()">
+        <mat-card-header class="cardHeader">
+          <span>
+            <mat-icon class="cardIcon">note</mat-icon>
+          </span>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>Entity Listings</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="homeCard">
+        <mat-card-header class="cardHeader">
+          <span>
+            <mat-icon class="cardIcon">help_center</mat-icon>
+          </span>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>Help</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
